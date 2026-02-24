@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gen AI in Climate & Earth Science — Presentation</title>
+    <meta name="description"
+        content="Case study presentation on applications of Generative AI in climate research, weather forecasting, and earth science.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- PROGRESS BAR -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- SLIDE NAVIGATION INDICATOR -->
+    <div class="slide-nav" id="slideNav"></div>
+
+    <!-- NAVIGATION ARROWS -->
+    <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+    </button>
+    <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </button>
+
+    <!-- SLIDE COUNTER -->
+    <div class="slide-counter" id="slideCounter">1 / 9</div>
+
+    <!-- KEYBOARD HINT -->
+    <div class="keyboard-hint" id="keyboardHint">
+        Use <kbd>←</kbd> <kbd>→</kbd> or click arrows to navigate
+    </div>
+
+    <!-- ==================== SLIDES ==================== -->
+
+    <!-- SLIDE 1: COVER -->
+    <section class="slide active" id="slide-0" data-bg="hero">
+        <div class="slide-content cover-slide">
+            <div class="cover-badge">Class Presentation — Case Study</div>
+            <h1 class="cover-title">
+                <span class="title-line">Generative AI in</span>
+                <span class="title-line accent">Climate & Earth Science</span>
+            </h1>
+            <p class="cover-subtitle">Real-world applications, tools, and how AI is transforming weather & climate
+                research</p>
+
+            <div class="cover-divider"></div>
+
+            <p class="cover-description">
+                This presentation covers <strong>5 key applications</strong> of Generative AI in climate science —
+                what technology is used, how it works in simple terms, and real organizations already using it today.
+            </p>
+
+            <div class="app-grid">
+                <div class="app-preview-card" onclick="goToSlide(2)">
+                    <span class="app-emoji">🌦️</span>
+                    <span class="app-label">Weather Forecasting</span>
+                    <span class="app-tool">GraphCast · DeepMind</span>
+                </div>
+                <div class="app-preview-card" onclick="goToSlide(3)">
+                    <span class="app-emoji">🎲</span>
+                    <span class="app-label">Probabilistic Prediction</span>
+                    <span class="app-tool">GenCast · FourCastNet</span>
+                </div>
+                <div class="app-preview-card" onclick="goToSlide(4)">
+                    <span class="app-emoji">🔍</span>
+                    <span class="app-label">High-Res Downscaling</span>
+                    <span class="app-tool">CorrDiff · NVIDIA</span>
+                </div>
+                <div class="app-preview-card" onclick="goToSlide(5)">
+                    <span class="app-emoji">⛈️</span>
+                    <span class="app-label">Storm Nowcasting</span>
+                    <span class="app-tool">StormScope · Earth-2</span>
+                </div>
+                <div class="app-preview-card" onclick="goToSlide(6)">
+                    <span class="app-emoji">🛰️</span>
+                    <span class="app-label">Satellite Reconstruction</span>
+                    <span class="app-tool">NASA · ESA · Astraea</span>
+                </div>
+                <div class="app-preview-card" onclick="goToSlide(7)">
+                    <span class="app-emoji">🌍</span>
+                    <span class="app-label">Climate Risk Modeling</span>
+                    <span class="app-tool">AXA · S&P · Earth-2</span>
+                </div>
+            </div>
+
+            <div class="tech-strip">
+                <span class="tech-strip-label">Core Gen AI Techniques</span>
+                <div class="tech-tags">
+                    <span class="tech-tag">Graph Neural Networks</span>
+                    <span class="tech-tag">Diffusion Models</span>
+                    <span class="tech-tag">Vision Transformers</span>
+                    <span class="tech-tag">Fourier Neural Operators</span>
+                    <span class="tech-tag">Convolutional Networks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 2: OVERVIEW — WHY GEN AI? -->
+    <section class="slide" id="slide-1" data-bg="dark">
+        <div class="slide-content">
+            <div class="section-tag">Context</div>
+            <h2 class="slide-title">Why Generative AI for Climate?</h2>
+
+            <div class="content-grid two-col">
+                <div class="content-block">
+                    <h3 class="block-heading"><span class="heading-icon">🧪</span> Traditional Approach</h3>
+                    <ul class="styled-list problem-list">
+                        <li>Weather forecasting uses <strong>Numerical Weather Prediction (NWP)</strong> — solving
+                            physics equations on massive supercomputer grids</li>
+                        <li>A 10-day global forecast needs <strong>hundreds of machines running for hours</strong></li>
+                        <li>Extremely expensive and energy-intensive</li>
+                        <li>Resolution limited by computational power</li>
+                    </ul>
+                </div>
+                <div class="content-block">
+                    <h3 class="block-heading"><span class="heading-icon">🤖</span> Gen AI Approach</h3>
+                    <ul class="styled-list solution-list">
+                        <li>AI models <strong>learn patterns from decades of historical data</strong> instead of solving
+                            equations from scratch</li>
+                        <li>Same forecast in <strong>under 60 seconds</strong> on a single machine</li>
+                        <li>~1,000× more energy efficient</li>
+                        <li>Can generate higher-resolution, probabilistic outputs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box info">
+                <div class="highlight-icon">💡</div>
+                <div>
+                    <strong>Key Insight:</strong> Gen AI doesn't replace scientists — it gives them tools that work
+                    <strong>1,000× faster</strong>, at a fraction of the cost, with equal or better accuracy.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: APPLICATION 1 — GraphCast -->
+    <section class="slide" id="slide-2" data-bg="blue">
+        <div class="slide-content">
+            <div class="section-tag app-tag">Application 1</div>
+            <h2 class="slide-title">🌦️ GraphCast — 10-Day Global Weather Forecast</h2>
+            <div class="app-meta">
+                <span class="meta-org">Google DeepMind</span>
+                <span class="meta-pub">Published in <em>Science</em>, Nov 2023</span>
+                <span class="meta-badge">Open Source</span>
+            </div>
+
+            <div class="content-grid two-col">
+                <div>
+                    <div class="info-card">
+                        <h3 class="card-title">❓ The Problem</h3>
+                        <p>Traditional weather forecasting (NWP) needs <strong>100s of supercomputer machines running
+                                for hours</strong> to produce a 10-day forecast. It's extremely expensive and
+                            energy-heavy.</p>
+                    </div>
+
+                    <div class="info-card accent-card">
+                        <h3 class="card-title">🧠 How Gen AI Works Here</h3>
+                        <p>GraphCast is a <strong>Graph Neural Network (GNN)</strong> trained on <strong>40 years of
+                                historical weather data (ERA5)</strong>.</p>
+                        <p>It represents Earth as a <em>mesh of connected points</em> (like a 3D spider web over the
+                            globe). Weather data flows between connected points — the model learns how patterns spread.
+                        </p>
+                        <p>To forecast 10 days: it predicts 6 hours ahead, feeds that output back, and repeats —
+                            <strong>40 times in under 60 seconds.</strong></p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flow-diagram">
+                        <div class="flow-title">How GraphCast Works</div>
+                        <div class="flow-steps">
+                            <div class="flow-item blue">🌍 Today's Weather Data</div>
+                            <div class="flow-connector">→</div>
+                            <div class="flow-item purple">GNN Learns Patterns</div>
+                            <div class="flow-connector">→</div>
+                            <div class="flow-item green">+6hr Forecast</div>
+                            <div class="flow-connector loop">↩ repeat ×40</div>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Speed</div>
+                            <div class="stat-value">
+                                < 60 sec</div>
+                                    <div class="stat-desc">for a 10-day forecast</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Accuracy</div>
+                                <div class="stat-value">89.3%</div>
+                                <div class="stat-desc">beats best traditional model</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Energy</div>
+                                <div class="stat-value">1,000×</div>
+                                <div class="stat-desc">more efficient</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-label">Training Data</div>
+                                <div class="stat-value">40 yrs</div>
+                                <div class="stat-desc">of global weather (ERA5)</div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box success">
+                            <div class="highlight-icon">🌀</div>
+                            <div>
+                                <strong>Real Example — Cyclone Warning:</strong> GraphCast predicted Typhoon Doksuri's
+                                (2023) landfall location <strong>7 days in advance</strong> — giving 2 extra days of
+                                evacuation time.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- SLIDE 4: APPLICATION 2 — GenCast & FourCastNet -->
+    <section class="slide" id="slide-3" data-bg="purple">
+        <div class="slide-content">
+            <div class="section-tag app-tag">Application 2</div>
+            <h2 class="slide-title">🎲 GenCast & FourCastNet — Probabilistic Forecasting</h2>
+            <div class="app-meta">
+                <span class="meta-org">Google DeepMind & NVIDIA</span>
+                <span class="meta-pub">GenCast: <em>Nature</em>, Dec 2024 · FourCastNet 3: 2025</span>
+            </div>
+
+            <div class="content-grid two-col">
+                <div>
+                    <div class="info-card">
+                        <h3 class="card-title">❓ The Problem</h3>
+                        <p>A single forecast tells you <em>one possible future</em>. But weather is uncertain —
+                            especially beyond 5 days. Scientists need to know: <strong>what is the range of
+                                possibilities and how likely is each one?</strong></p>
+                    </div>
+
+                    <div class="info-card accent-card">
+                        <h3 class="card-title">🧠 How Gen AI Works Here</h3>
+                        <p><strong>GenCast</strong> uses a <em>Diffusion Model</em> — same type of AI that generates
+                            images (like DALL-E). It starts from random "noise" and gradually shapes it into a
+                            physically realistic future weather state. Running it 50 times gives <strong>50 different
+                                possible futures.</strong></p>
+                        <p><strong>FourCastNet 3</strong> uses <em>Fourier Neural Operators</em> — converts weather data
+                            into waves (like audio signals), processes them, and generates ensemble forecasts up to
+                            <strong>90 days ahead.</strong></p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="highlight-box warning">
+                        <div class="highlight-icon">🎲</div>
+                        <div>
+                            <strong>What Is an "Ensemble"?</strong><br>
+                            Instead of saying "it will rain," the AI says: <strong>"70% heavy rain, 20% moderate, 10%
+                                dry."</strong> This is far more useful for disaster planning, insurance, and energy
+                            grids.
+                        </div>
+                    </div>
+
+                    <div class="stats-grid two-stats">
+                        <div class="stat-card wide">
+                            <div class="stat-label">GenCast vs ECMWF</div>
+                            <div class="stat-value">97.2%</div>
+                            <div class="stat-desc">outperforms world's best ensemble system</div>
+                        </div>
+                        <div class="stat-card wide">
+                            <div class="stat-label">FourCastNet 3</div>
+                            <div class="stat-value">90 days</div>
+                            <div class="stat-desc">forecast in 20 seconds on 1 GPU</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box success">
+                        <div class="highlight-icon">🌡️</div>
+                        <div>
+                            <strong>Real Example — Heat Wave Prediction:</strong> GenCast provides early probability
+                            estimates for extreme heat waves — hospitals and grid operators get warnings <strong>10+
+                                days ahead</strong> with confidence levels attached.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 5: APPLICATION 3 — CorrDiff -->
+    <section class="slide" id="slide-4" data-bg="teal">
+        <div class="slide-content">
+            <div class="section-tag app-tag">Application 3</div>
+            <h2 class="slide-title">🔍 CorrDiff — AI Downscaling (Zoom In on Weather)</h2>
+            <div class="app-meta">
+                <span class="meta-org">NVIDIA Research</span>
+                <span class="meta-pub">Part of Earth-2 Platform</span>
+                <span class="meta-badge">Deployed: UAE & Israel 2024</span>
+            </div>
+
+            <div class="content-grid two-col">
+                <div>
+                    <div class="info-card">
+                        <h3 class="card-title">❓ The Problem</h3>
+                        <p>Global weather models are "blurry" — they work at <strong>25km resolution</strong>. That
+                            means one data point covers an area the size of a city. You cannot see local effects like
+                            sea breezes, building heat, or valley floods.</p>
+                    </div>
+
+                    <div class="info-card accent-card">
+                        <h3 class="card-title">🧠 How Gen AI Works Here</h3>
+                        <p>CorrDiff is a <strong>Diffusion Model</strong> — same technology as AI image upscaling. It
+                            takes a coarse 25km forecast and <em>generates realistic fine-scale detail</em> down to
+                            <strong>2km or even 200 meters.</strong></p>
+                        <p>Just like an AI can upscale a blurry photo into a sharp one, CorrDiff upscales a blurry
+                            weather map — adding physically realistic features like sea breezes and urban heat.</p>
+                        <p>It does this <strong>500× faster</strong> than traditional physics-based downscaling.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="visual-comparison">
+                        <div class="compare-side before">
+                            <div class="compare-label bad">Before: Coarse (25km)</div>
+                            <div class="grid-visual coarse">
+                                <div class="grid-cell hot">38°</div>
+                                <div class="grid-cell warm">36°</div>
+                                <div class="grid-cell mild">34°</div>
+                                <div class="grid-cell mild">32°</div>
+                                <div class="grid-cell cool">31°</div>
+                                <div class="grid-cell cool">29°</div>
+                                <div class="grid-cell cold">27°</div>
+                                <div class="grid-cell cold">26°</div>
+                                <div class="grid-cell cold">25°</div>
+                            </div>
+                            <div class="compare-note">Big grid — blurry</div>
+                        </div>
+
+                        <div class="compare-arrow">
+                            <div class="arrow-label">CorrDiff<br>Diffusion AI</div>
+                            <div class="arrow-icon">→</div>
+                            <div class="arrow-speed">500× faster</div>
+                        </div>
+
+                        <div class="compare-side after">
+                            <div class="compare-label good">After: Fine Detail (2km)</div>
+                            <div class="grid-visual fine">
+                                <div class="fine-zone urban">Urban 41°</div>
+                                <div class="fine-zone valley">Valley 36°</div>
+                                <div class="fine-zone sea">Sea breeze 27°</div>
+                            </div>
+                            <div class="compare-note">Local patterns visible</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box success">
+                        <div class="highlight-icon">🇦🇪</div>
+                        <div>
+                            <strong>Real Example — UAE Government (2024):</strong> G42 & NVIDIA deployed CorrDiff for
+                            the entire UAE at <strong>2km resolution</strong>, with <strong>200-meter
+                                resolution</strong> around Abu Dhabi — used for aviation safety and urban planning.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 6: APPLICATION 4 — StormScope Nowcasting -->
+    <section class="slide" id="slide-5" data-bg="orange">
+        <div class="slide-content">
+            <div class="section-tag app-tag">Application 4</div>
+            <h2 class="slide-title">⛈️ StormScope — Short-Range Storm Prediction</h2>
+            <div class="app-meta">
+                <span class="meta-org">NVIDIA Earth-2 Platform</span>
+                <span class="meta-pub">Operational Use 2024–25</span>
+            </div>
+
+            <div class="content-grid two-col">
+                <div>
+                    <div class="info-card">
+                        <h3 class="card-title">❓ The Problem</h3>
+                        <p>For a flood or storm <strong>2 hours away</strong>, you need <em>immediate, local</em>
+                            prediction — not a 10-day global model. Traditional short-range models lack the resolution
+                            or speed needed for real-time emergency response.</p>
+                    </div>
+
+                    <div class="info-card accent-card">
+                        <h3 class="card-title">🧠 How Gen AI Works Here</h3>
+                        <p>StormScope takes <strong>live satellite and radar data</strong> as input and uses a
+                            Generative Convolutional AI to produce <strong>kilometer-resolution storm
+                                predictions</strong> for the next <strong>0–6 hours.</strong></p>
+                        <p>The AI was trained to recognize storm formation patterns and "paint" realistic storm
+                            evolution in real-time.</p>
+                    </div>
+
+                    <div class="flow-diagram compact">
+                        <div class="flow-title">StormScope Pipeline</div>
+                        <div class="flow-steps">
+                            <div class="flow-item orange">📡 Live Satellite + Radar</div>
+                            <div class="flow-connector">→</div>
+                            <div class="flow-item purple">Gen CNN Model</div>
+                            <div class="flow-connector">→</div>
+                            <div class="flow-item green">0–6hr Storm Map</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="highlight-box info">
+                        <div class="highlight-icon">⚡</div>
+                        <div>
+                            <strong>Why This Matters:</strong> Traditional physics models are too slow for 0–6 hour
+                            predictions at local scale. Gen AI produces the same result in seconds — enabling
+                            <strong>real-time flood alerts, flight rerouting, and emergency response</strong> that
+                            wasn't possible before.
+                        </div>
+                    </div>
+
+                    <div class="use-cases-grid">
+                        <div class="use-case">
+                            <div class="uc-icon">🛫</div>
+                            <div class="uc-text">Flight Rerouting</div>
+                        </div>
+                        <div class="use-case">
+                            <div class="uc-icon">🚨</div>
+                            <div class="uc-text">Flood Alerts</div>
+                        </div>
+                        <div class="use-case">
+                            <div class="uc-icon">🏥</div>
+                            <div class="uc-text">Emergency Response</div>
+                        </div>
+                        <div class="use-case">
+                            <div class="uc-icon">⚡</div>
+                            <div class="uc-text">Power Grid Safety</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box warning">
+                        <div class="highlight-icon">🇮🇱</div>
+                        <div>
+                            <strong>Real Example — Israel Met Service:</strong> The Israel Meteorological Service is
+                            integrating Earth-2 Nowcasting operationally for short-range national storm prediction — a
+                            <strong>government agency formally adopting Gen AI</strong> in live operations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 7: APPLICATION 5 — Satellite Gap Filling -->
+    <section class="slide" id="slide-6" data-bg="green">
+        <div class="slide-content">
+            <div class="section-tag app-tag">Application 5</div>
+            <h2 class="slide-title">🛰️ Satellite Gap Filling & Earth Observation</h2>
+            <div class="app-meta">
+                <span class="meta-org">NASA · ESA · Astraea</span>
+                <span class="meta-pub">Used Operationally</span>
+            </div>
+
+            <div class="content-grid two-col">
+                <div>
+                    <div class="info-card">
+                        <h3 class="card-title">❓ The Problem</h3>
+                        <p>Satellites cannot see through thick clouds. When a cyclone or major weather system is
+                            present, satellite images have <strong>huge missing patches</strong> — exactly when
+                            scientists need the data most.</p>
+                    </div>
+
+                    <div class="info-card accent-card">
+                        <h3 class="card-title">🧠 How Gen AI Works Here</h3>
+                        <p>Gen AI uses <strong>Image Inpainting</strong> — the same technology used to "erase" objects
+                            from photos. The AI was trained on thousands of complete + incomplete satellite images to
+                            learn how to <em>realistically reconstruct missing patches.</em></p>
+                        <p>NASA and ESA apply this to <strong>sea surface temperature, ice extent, soil moisture, and
+                                cloud cover maps</strong> — producing continuous, uninterrupted records essential for
+                            climate science.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="visual-comparison satellite-viz">
+                        <div class="compare-side before">
+                            <div class="compare-label bad">Raw Satellite Image</div>
+                            <div class="sat-visual raw">
+                                <div class="sat-ocean"></div>
+                                <div class="sat-missing">
+                                    <span>Missing Data</span>
+                                    <small>(cloud cover)</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="compare-arrow">
+                            <div class="arrow-label">Gen AI<br>Inpainting</div>
+                            <div class="arrow-icon">→</div>
+                        </div>
+
+                        <div class="compare-side after">
+                            <div class="compare-label good">Reconstructed Image</div>
+                            <div class="sat-visual filled">
+                                <div class="sat-ocean"></div>
+                                <div class="sat-reconstructed">
+                                    <span>27.3°C</span>
+                                    <span>26.8°C</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box success">
+                        <div class="highlight-icon">🌊</div>
+                        <div>
+                            <strong>Real Example — Astraea Platform:</strong> Fuses data from multiple satellites to
+                            produce continuous, gap-free maps of land use change, crop health, and flood extent — used
+                            by <strong>governments and research institutions</strong> for environmental monitoring.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 8: SUMMARY TABLE -->
+    <section class="slide" id="slide-7" data-bg="dark">
+        <div class="slide-content">
+            <div class="section-tag">Summary</div>
+            <h2 class="slide-title">📋 All Applications at a Glance</h2>
+
+            <div class="summary-table-wrapper">
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Application</th>
+                            <th>Tool / Organization</th>
+                            <th>Gen AI Technique</th>
+                            <th>Key Result / Real Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="table-emoji">🌦️</span> Weather Forecasting</td>
+                            <td>GraphCast — DeepMind</td>
+                            <td><span class="tech-pill">Graph Neural Network</span></td>
+                            <td>Typhoon Doksuri 7-day track prediction (2023)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-emoji">🎲</span> Probabilistic Forecast</td>
+                            <td>GenCast — DeepMind</td>
+                            <td><span class="tech-pill">Diffusion Model</span></td>
+                            <td>Beats ECMWF ensemble on 97.2% of tests</td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-emoji">🌊</span> Long-Range Forecast</td>
+                            <td>FourCastNet 3 — NVIDIA</td>
+                            <td><span class="tech-pill">Fourier Neural Operators</span></td>
+                            <td>AXA Insurance — hurricane risk modeling</td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-emoji">🔍</span> Downscaling</td>
+                            <td>CorrDiff — NVIDIA Earth-2</td>
+                            <td><span class="tech-pill">Diffusion Model</span></td>
+                            <td>UAE 200m-resolution city forecasts (2024)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-emoji">⛈️</span> Storm Nowcasting</td>
+                            <td>StormScope — Earth-2</td>
+                            <td><span class="tech-pill">Generative CNN</span></td>
+                            <td>Israel Met Service (operational)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-emoji">🛰️</span> Satellite Reconstruction</td>
+                            <td>NASA / ESA / Astraea</td>
+                            <td><span class="tech-pill">Image Inpainting AI</span></td>
+                            <td>Continuous sea surface temperature records</td>
+                        </tr>
+                        <tr>
+                            <td><span class="table-emoji">📊</span> Climate Risk Modeling</td>
+                            <td>S&P Global, Earth-2</td>
+                            <td><span class="tech-pill">Ensemble Generation</span></td>
+                            <td>Portfolio-level energy asset risk analysis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 9: KEY TAKEAWAY -->
+    <section class="slide" id="slide-8" data-bg="hero">
+        <div class="slide-content takeaway-slide">
+            <div class="section-tag">Conclusion</div>
+            <h2 class="slide-title takeaway-title">🔑 Key Takeaway</h2>
+
+            <div class="takeaway-quote">
+                <p>Gen AI in climate science is <strong>not</strong> about replacing scientists — it's about giving them
+                    tools that work <span class="highlight-text">1,000× faster</span>, at a <span
+                        class="highlight-text">fraction of the cost</span>, with <span class="highlight-text">equal or
+                        better accuracy</span>.</p>
+            </div>
+
+            <div class="takeaway-facts">
+                <div class="fact-card">
+                    <div class="fact-icon">⏱️</div>
+                    <div class="fact-text">A forecast that once needed a room full of supercomputers now runs in
+                        <strong>60 seconds</strong> on a single machine</div>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🏛️</div>
+                    <div class="fact-text">All of this is <strong>already deployed today</strong> by real governments,
+                        insurance companies, and space agencies</div>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🌱</div>
+                    <div class="fact-text">~1,000× more energy efficient — Gen AI is helping <strong>fight climate
+                            change while studying it</strong></div>
+                </div>
+            </div>
+
+            <div class="thank-you">
+                <p>Thank You!</p>
+                <span class="ty-sub">Questions & Discussion</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
